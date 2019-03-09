@@ -20,7 +20,7 @@ class UnionFind
     return -parent[root(x)]
   end
 
-  def connect(x, y)
+  def unite(x, y)
     rx = root(x)
     ry = root(y)
     if rx == ry
@@ -57,9 +57,9 @@ class TestUnionFind < Minitest::Test
     assert_equal 1, uf.size(4)
   end
 
-  def test_connect
+  def test_unite
     uf = UnionFind.new([1,2,3,4])
-    uf.connect(1,2)
+    uf.unite(1,2)
     assert_equal 1, uf.root(1)
     assert_equal 1, uf.root(2)
     assert_equal 3, uf.root(3)
@@ -67,11 +67,11 @@ class TestUnionFind < Minitest::Test
     assert_equal 1, uf.size(3)
     assert_equal 1, uf.size(4)
 
-    uf.connect(3,4)
+    uf.unite(3,4)
     assert_equal 3, uf.root(4)
     assert_equal 2, uf.size(3)
 
-    uf.connect(1,4)
+    uf.unite(1,4)
     assert_equal 1, uf.root(4)
     assert_equal 4, uf.size(3)
   end
