@@ -1,5 +1,6 @@
 require 'prime'
 
+# 約数の個数を求めたいならこれじゃなくて公式を使って！
 def common_divisors(n)
   return [1] if n == 1
 
